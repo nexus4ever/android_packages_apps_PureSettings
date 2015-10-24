@@ -18,6 +18,22 @@
     android:title="@string/powermenu_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+    <PreferenceCategory
+        android:key="power_category"
+        android:title="@string/power_category" >
+
+        <com.n4e.settings.preferences.SystemSettingSwitchPreference
+            android:key="lockscreen_enable_power_menu"
+            android:title="@string/lockscreen_enable_power_menu_title"
+            android:summary="@string/lockscreen_enable_power_menu_summary"
+            android:defaultValue="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="action_category"
+        android:title="@string/action_category" >
+
          <com.n4e.settings.preferences.SystemSettingSwitchPreference
             android:key="powermenu_power"
             android:title="@string/powermenu_power"
@@ -53,7 +69,13 @@
             android:title="@string/powermenu_soundpanel"
             android:defaultValue="true" /-->
 
-         <ListPreference
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="animation_category"
+        android:title="@string/animation_category" >
+
+        <ListPreference
             android:key="power_menu_animations"
             android:title="@string/power_menu_animation_title"
             android:dialogTitle="@string/power_menu_animation_dialog_title"
@@ -68,5 +90,7 @@
             android:entries="@array/toast_animation_entries"
             android:entryValues="@array/toast_animation_values"
             android:persistent="false" />
+
+    </PreferenceCategory>
 
 </PreferenceScreen>

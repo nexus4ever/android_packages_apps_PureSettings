@@ -32,8 +32,11 @@ import android.support.annotation.NonNull;
 import android.widget.Toast;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
+import com.android.internal.widget.LockPatternUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+
+import com.n4e.settings.preferences.SystemSettingSwitchPreference;
 
 import java.util.Arrays;
 import java.util.ArrayList;
@@ -41,11 +44,17 @@ import java.util.List;
 
 public class PowerMenuSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
+
+    private static final String ACTION_CATEGORY = "action_category";
+    private static final String POWER_CATEGORY = "power_category";
+    private static final String ANIMATION_CATEGORY = "animation_category";
     private static final String POWER_MENU_ANIMATIONS = "power_menu_animations";
     private static final String KEY_TOAST_ANIMATION = "toast_animation";
 
     private ListPreference mPowerMenuAnimations;
     private ListPreference mToastAnimation;
+
+    private static final int MY_USER_ID = UserHandle.myUserId();
 
     @Override
     protected int getMetricsCategory() {
@@ -57,6 +66,19 @@ public class PowerMenuSettings extends SettingsPreferenceFragment implements OnP
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.n4e_settings_power);
+        final PreferenceScreen prefScreen = getPreferenceScreen();
+        final LockPatternUtils lockPatternUtils = new LockPatternUtils(getActivity());
+ 
+        final PreferenceCategory actionCategory =
+                (PreferenceCategory) prefScreen.findPreference(ACTION_CATEGORY);
+        final PreferenceCategory powerCategory =
+                (PreferenceCategory) prefScreen.findPreference(POWER_CATEGORY);
+        final PreferenceCategory animationCategory =
+                (PreferenceCategory) prefScreen.findPreference(ANIMATION_CATEGORY);
+
+        if (!lockPatternUtils.isSecure(MY_USER_ID)) {
+            prefScreen.removePreference(powerCategory);
+        }
 
         mPowerMenuAnimations = (ListPreference) findPreference(POWER_MENU_ANIMATIONS);
         mPowerMenuAnimations.setValue(String.valueOf(Settings.System.getInt(
@@ -91,6 +113,16 @@ public class PowerMenuSettings extends SettingsPreferenceFragment implements OnP
                     Toast.LENGTH_SHORT).show();
         }
         return false;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        final PreferenceScreen prefScreen = getPreferenceScreen();
+        final PreferenceCategory actionCategory =
+                (PreferenceCategory) prefScreen.findPreference(ACTION_CATEGORY);
+
     }
 
 }
