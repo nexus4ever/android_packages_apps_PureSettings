@@ -296,7 +296,7 @@
     <!-- Allow fake signature checkbox in developer settings -->
     <string name="allow_signature_fake">Allow signature spoofing</string>
     <string name="allow_signature_fake_summary">Allow apps to bypass security systems by pretending to be a different app</string>
-
+ 
     <!-- Tiles animation style  -->
     <string name="quicksettings_tiles_category">Tile animation options</string>
     <string name="qs_tile_animation_style_title">Tiles animation style</string>
@@ -319,6 +319,10 @@
     <string name="qs_set_animation_style">%1$s</string>
     <string name="qs_set_animation_duration">%1$s</string>
     <string name="qs_set_animation_interpolator">%1$s</string>
+
+    <!-- Quicks settings vibrate -->
+    <string name="quick_settings_vibrate_title">Vibrate on touch</string>
+    <string name="quick_settings_vibrate_summary">Vibrate when touching tiles</string>
 
     <!-- Scrolling Cache -->
     <string name="pref_scrollingcache_title">Scrolling cache</string>

@@ -36,6 +36,12 @@
         android:key="quicksettings_tiles_category"
         android:title="@string/quicksettings_tiles_category">
 
+    <com.n4e.settings.preferences.SystemSettingSwitchPreference
+        android:key="quick_settings_vibrate"
+        android:title="@string/quick_settings_vibrate_title"
+        android:summary="@string/quick_settings_vibrate_summary"
+        android:defaultValue="false"/>
+
     <ListPreference
         android:key="qs_tile_animation_style"
         android:title="@string/qs_tile_animation_style_title"
