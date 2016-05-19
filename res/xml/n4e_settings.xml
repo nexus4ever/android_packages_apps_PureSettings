@@ -17,6 +17,13 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/n4e_settings_title" >
 
+        <!-- Display -->
+        <PreferenceScreen
+            android:key="pure_display_settings"
+            android:title="@string/display_settings_title"
+            android:fragment="com.n4e.settings.fragments.DisplaySettings"
+            android:icon="@drawable/ic_settings_statusbar"/>
+
         <!-- Status Bar -->
         <PreferenceScreen
             android:key="statusbar_category"
