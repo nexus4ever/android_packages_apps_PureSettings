@@ -53,6 +53,6 @@ public class MiscSettings extends SettingsPreferenceFragment implements
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsEvent.NITROGEN_SETTINGS;
+        return MetricsEvent.NEXUS_SETTINGS;
     }
 }
