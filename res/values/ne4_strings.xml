@@ -90,4 +90,12 @@
     <string name="powermenu_settings">Settings</string>
     <string name="powermenu_lockdown">Lock Down</string>
     <string name="powermenu_soundpanel">Sound Panel</string>
+
+    <!-- Volume rocker wake -->
+    <string name="wakeup_category_header">Wakeup options</string>
+    <string name="volume_rocker_wake_title">Volume rocker wake</string>
+    <string name="volume_rocker_wake_summary">Pressing the volume keys will wake your device</string>
+
+    <!-- Volume rocker music control -->
+    <string name="media_category_header">Media options</string>
 </resources>
