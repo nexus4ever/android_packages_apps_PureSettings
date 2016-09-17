@@ -13,12 +13,14 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/statusbar_title"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-<resources>
-    <!-- ColorPicker -->
-    <declare-styleable name="ColorPickPref">
-        <attr name="alphaSlider" format="boolean" />
-        <attr name="alphaText" format="boolean" />
-        <attr name="colorgroupname" format="string" />
-    </declare-styleable>
-</resources>
+    <PreferenceScreen
+            android:key="network_traffic_state"
+            android:fragment="com.n4e.settings.fragments.NetworkTraffic"
+            android:title="@string/network_traffic_title" />
+
+</PreferenceScreen>
