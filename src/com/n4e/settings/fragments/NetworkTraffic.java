@@ -43,7 +43,7 @@ public class NetworkTraffic extends SettingsPreferenceFragment
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.network_traffic);
+        addPreferencesFromResource(R.xml.n4e_network_traffic);
 
         loadResources();
 

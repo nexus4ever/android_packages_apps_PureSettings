@@ -37,7 +37,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.android.settings.R;
 import com.android.settings.SettingsActivity;
-import com.n4e.settings.NeXus4everSettings;
+import com.n4e.settings.PureSettings;
 import com.n4e.settings.preferences.ColorPickerDialog.OnColorChangedListener;
 
 import java.util.Locale;
@@ -232,7 +232,7 @@ public class ColorPickerPreference extends Preference implements OnPreferenceCli
     protected void showDialog(Bundle state) {
         if (mDialog == null || !mDialog.isShowing()) {
             // force orientation to stay while dialog is open
-            NeXus4everSettings.lockCurrentOrientation((SettingsActivity) getContext());
+            PureSettings.lockCurrentOrientation((SettingsActivity) getContext());
             mDialog = new ColorPickerDialog(getContext(), mValue, mDefault, mKey, mTitle);
             mDialog.setOnColorChangedListener(this);
             // undo orientation fixing on dismiss of dialog
