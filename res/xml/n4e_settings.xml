@@ -25,11 +25,11 @@
             android:icon="@drawable/ic_settings_statusbar"/>
 
         <!-- Quick Settings panel -->
-        <PreferenceScreen
+        <!--PreferenceScreen
             android:key="quicksettings_category"
             android:title="@string/quicksettings_title"
             android:fragment="com.n4e.settings.fragments.QuickSettings"
-            android:icon="@drawable/ic_settings_quicksettings"/>
+            android:icon="@drawable/ic_settings_quicksettings"/-->
 
         <!-- Buttons -->
         <PreferenceScreen
@@ -39,11 +39,11 @@
             android:icon="@drawable/ic_settings_buttons"/>
 
         <!-- Navigation Bar -->
-        <PreferenceScreen
+        <!--PreferenceScreen
             android:key="navigationbar_category"
             android:title="@string/navbar_title" 
             android:fragment="com.n4e.settings.fragments.NavigationBarSettings"
-            android:icon="@drawable/ic_settings_navbar"/>
+            android:icon="@drawable/ic_settings_navbar"/-->
 
         <!-- Gestures -->
         <PreferenceScreen
@@ -53,25 +53,25 @@
             android:icon="@drawable/ic_settings_gestures"/>
 
         <!-- Lock Screen -->
-        <PreferenceScreen
+        <!--PreferenceScreen
             android:key="lockscreen_category"
             android:title="@string/lockscreen_title" 
             android:fragment="com.n4e.settings.fragments.LockScreenSettings"
-            android:icon="@drawable/ic_settings_lockscreens"/>
+            android:icon="@drawable/ic_settings_lockscreens"/-->
 
         <!-- Power Menu -->
-        <PreferenceScreen
+        <!--PreferenceScreen
             android:key="powermenu__category"
             android:title="@string/powermenu_title" 
             android:fragment="com.n4e.settings.fragments.PowerMenuSettings"
-            android:icon="@drawable/ic_settings_powermenu"/>
+            android:icon="@drawable/ic_settings_powermenu"/-->
 
         <!-- Recents -->
-        <PreferenceScreen
+        <!--PreferenceScreen
             android:key="recents_category"
             android:title="@string/recents_title"
             android:fragment="com.n4e.settings.fragments.RecentsSettings"
-            android:icon="@drawable/ic_settings_recents"/>
+            android:icon="@drawable/ic_settings_recents"/-->
 
         <!-- Misc -->
         <PreferenceScreen
