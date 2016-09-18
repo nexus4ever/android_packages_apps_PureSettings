@@ -39,7 +39,7 @@ public class Nexus4everSettings extends SettingsPreferenceFragment {
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsEvent.NITROGEN_SETTINGS;
+        return MetricsEvent.NEXUS_SETTINGS;
     }
 
     public static void lockCurrentOrientation(Activity activity) {
