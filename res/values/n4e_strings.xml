@@ -541,4 +541,7 @@
     <string name="backlight_timeout_20s">20 sec</string>
     <string name="backlight_timeout_30s">30 sec</string>
 
+    <!-- Enabble HW keys -->
+    <string name="enable_hw_keys_title">Enable hardware keys</string>
+
 </resources>
