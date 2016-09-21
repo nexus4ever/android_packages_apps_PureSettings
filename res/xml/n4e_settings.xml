@@ -46,11 +46,11 @@
             android:icon="@drawable/ic_settings_buttons"/>
 
         <!-- Navigation Bar -->
-        <!--PreferenceScreen
+        <PreferenceScreen
             android:key="navigationbar_category"
             android:title="@string/navbar_title" 
             android:fragment="com.n4e.settings.fragments.NavigationBarSettings"
-            android:icon="@drawable/ic_settings_navbar"/-->
+            android:icon="@drawable/ic_settings_navbar"/>
 
         <!-- Gestures -->
         <PreferenceScreen
