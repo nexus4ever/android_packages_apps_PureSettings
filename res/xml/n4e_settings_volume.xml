@@ -46,11 +46,23 @@
         android:key="media"
         android:title="@string/media_category_header" >
 
-    <com.n4e.settings.preferences.SystemSettingSwitchPreference
-        android:key="volume_rocker_music_controls"
-        android:summary="@string/volume_rocker_music_controls_summary"
-        android:title="@string/volume_rocker_music_controls_title"
+    <com.n4e.settings.preferences.SecureSettingSwitchPreference
+        android:key="sysui_volume_down_silent"
+        android:title="@string/volbtn_down_zen_title"
+        android:summary="@string/volbtn_down_zen_summary"
+        android:defaultValue="true"/>
+
+    <com.n4e.settings.preferences.SecureSettingSwitchPreference
+        android:key="sysui_volume_up_silent"
+        android:title="@string/volbtn_up_zen_title"
+        android:summary="@string/volbtn_up_zen_summary"
         android:defaultValue="true" />
+
+    <com.n4e.settings.preferences.SecureSettingSwitchPreference
+        android:key="sysui_show_full_zen"
+        android:title="@string/vol_zen_title"
+        android:summary="@string/vol_zen_summary"
+        android:defaultValue="false"/>
 
     </PreferenceCategory>
 </PreferenceScreen>
