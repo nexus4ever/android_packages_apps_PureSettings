@@ -141,4 +141,8 @@
     <!-- Double Tap Lockscreen to Sleep -->
     <string name="double_tap_to_sleep_lockscreen_title">Lockscreen</string>
     <string name="double_tap_to_sleep_lockscreen_summary">Double tap on the top third or bottom shortcut area of the lock screen to put the device to sleep</string>
+    <!-- Navbar Tuner -->
+    <string name="navbar_tuner_title">Edit navigation bar</string>
+    <!-- Statusbar Tuner -->
+    <string name="statusbar_items_title">Statusbar items</string>
 </resources>
