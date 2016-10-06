@@ -25,11 +25,11 @@
             android:icon="@drawable/ic_settings_statusbar"/>
 
         <!-- Quick Settings panel -->
-        <!--PreferenceScreen
+        <PreferenceScreen
             android:key="quicksettings_category"
             android:title="@string/quicksettings_title"
             android:fragment="com.n4e.settings.fragments.QuickSettings"
-            android:icon="@drawable/ic_settings_quicksettings"/-->
+            android:icon="@drawable/ic_settings_quicksettings"/>
 
         <!-- Buttons -->
         <PreferenceScreen
