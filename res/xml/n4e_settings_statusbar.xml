@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2016 NeXus4ever Project
+<!-- Copyright (C) 2016 The NeXus4ever Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -17,6 +17,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/statusbar_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+
+    <PreferenceScreen
+            android:title="@string/statusbar_items_title" >
+            <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.systemui"
+                android:targetClass="com.android.systemui.tuner.StatusbarItemsActivity" />
+    </PreferenceScreen>
+
+    <PreferenceScreen
+            android:key="statusbar_battery"
+            android:title="@string/battery_title"
+            android:fragment="com.n4e.settings.fragments.StatusbarBatterySettings" />
 
     <PreferenceScreen
             android:key="network_traffic_state"
