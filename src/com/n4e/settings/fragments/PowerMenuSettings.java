@@ -29,6 +29,7 @@ import android.support.v7.preference.PreferenceCategory;
 import android.support.v7.preference.PreferenceScreen;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.support.annotation.NonNull;
+import android.widget.Toast;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.settings.R;
@@ -41,8 +42,10 @@ import java.util.List;
 public class PowerMenuSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
     private static final String POWER_MENU_ANIMATIONS = "power_menu_animations";
+    private static final String KEY_TOAST_ANIMATION = "toast_animation";
 
     private ListPreference mPowerMenuAnimations;
+    private ListPreference mToastAnimation;
 
     @Override
     protected int getMetricsCategory() {
@@ -60,6 +63,15 @@ public class PowerMenuSettings extends SettingsPreferenceFragment implements OnP
                 getContentResolver(), Settings.System.POWER_MENU_ANIMATIONS, 0)));
         mPowerMenuAnimations.setSummary(mPowerMenuAnimations.getEntry());
         mPowerMenuAnimations.setOnPreferenceChangeListener(this);
+
+        // Toast Animations
+        mToastAnimation = (ListPreference) findPreference(KEY_TOAST_ANIMATION);
+        mToastAnimation.setSummary(mToastAnimation.getEntry());
+        int CurrentToastAnimation = Settings.System.getInt(
+                getContentResolver(), Settings.System.TOAST_ANIMATION, 1);
+        mToastAnimation.setValueIndex(CurrentToastAnimation); //set to index of default value
+        mToastAnimation.setSummary(mToastAnimation.getEntries()[CurrentToastAnimation]);
+        mToastAnimation.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -70,6 +82,12 @@ public class PowerMenuSettings extends SettingsPreferenceFragment implements OnP
             mPowerMenuAnimations.setValue(String.valueOf(newValue));
             mPowerMenuAnimations.setSummary(mPowerMenuAnimations.getEntry());
             return true;
+        } else if (preference == mToastAnimation) {
+            int index = mToastAnimation.findIndexOfValue((String) newValue);
+            Settings.System.putString(getContentResolver(),
+                    Settings.System.TOAST_ANIMATION, (String) newValue);
+            mToastAnimation.setSummary(mToastAnimation.getEntries()[index]);
+            Toast.makeText(getActivity(), "Toast test!!!", Toast.LENGTH_SHORT).show();
         }
         return false;
     }
