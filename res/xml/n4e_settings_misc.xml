@@ -30,6 +30,18 @@
                 android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
         </PreferenceScreen>
 
+        <PreferenceScreen
+            android:key="kernel_adiutor"
+            android:title="@string/kerneladiutor_title"
+            android:summary="@string/kerneladiutor_summary"
+            android:persistent="false">
+
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="com.grarak.kerneladiutor"
+                android:targetClass="com.grarak.kerneladiutor.MainActivity" />
+        </PreferenceScreen>
+
         <com.n4e.settings.preferences.GlobalSettingSwitchPreference
             android:key="wake_when_plugged_or_unplugged"
             android:title="@string/wakeup_when_plugged_unplugged_title"
