@@ -53,11 +53,11 @@
             android:icon="@drawable/ic_settings_gestures"/>
 
         <!-- Lock Screen -->
-        <!--PreferenceScreen
+        <PreferenceScreen
             android:key="lockscreen_category"
             android:title="@string/lockscreen_title" 
             android:fragment="com.n4e.settings.fragments.LockScreenSettings"
-            android:icon="@drawable/ic_settings_lockscreens"/-->
+            android:icon="@drawable/ic_settings_lockscreens"/>
 
         <!-- Power Menu -->
         <!--PreferenceScreen
