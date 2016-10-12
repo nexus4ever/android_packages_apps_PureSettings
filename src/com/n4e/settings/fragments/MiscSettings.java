@@ -33,10 +33,6 @@ public class MiscSettings extends SettingsPreferenceFragment implements
     private static final String KEY_LOCK_CLOCK = "lock_clock";
     private static final String KEY_LOCK_CLOCK_PACKAGE_NAME = "com.cyanogenmod.lockclock";
 
-    private static final String KEY_KERNEL_ADIUTOR = "kernel_adiutor";
-    private static final String KEY_KERNEL_ADIUTOR_PACKAGE_NAME = "com.kerneladiutor.mod";
-
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,12 +43,6 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         if (!DevelopmentSettings.isPackageInstalled(getActivity(), KEY_LOCK_CLOCK_PACKAGE_NAME)) {
             getPreferenceScreen().removePreference(findPreference(KEY_LOCK_CLOCK));
         }
-
-        // mKernelAdiutor
-        if (!DevelopmentSettings.isPackageInstalled(getActivity(), KEY_KERNEL_ADIUTOR_PACKAGE_NAME)) {
-            getPreferenceScreen().removePreference(findPreference(KEY_KERNEL_ADIUTOR));
-        }
-
     }
 
     @Override
