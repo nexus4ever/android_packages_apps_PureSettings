@@ -28,28 +28,38 @@
             android:title="@string/powermenu_reboot"
             android:defaultValue="true" />
 
-         <com.n4e.settings.preferences.SystemSettingSwitchPreference
+         <!--com.n4e.settings.preferences.SystemSettingSwitchPreference
             android:key="powermenu_screenshot"
             android:title="@string/powermenu_screenshot"
-            android:defaultValue="true" />
+            android:defaultValue="true" /-->
 
          <com.n4e.settings.preferences.SystemSettingSwitchPreference
             android:key="powermenu_airplane"
             android:title="@string/powermenu_airplane"
             android:defaultValue="true" />
 
-         <com.n4e.settings.preferences.SystemSettingSwitchPreference
+         <!--com.n4e.settings.preferences.SystemSettingSwitchPreference
             android:key="powermenu_settings"
             android:title="@string/powermenu_settings"
-            android:defaultValue="false" />
+            android:defaultValue="false" /-->
 
-         <com.n4e.settings.preferences.SystemSettingSwitchPreference
+         <!--com.n4e.settings.preferences.SystemSettingSwitchPreference
             android:key="powermenu_lockdown"
             android:title="@string/powermenu_lockdown"
-            android:defaultValue="false" />
+            android:defaultValue="false" /-->
 
-         <com.n4e.settings.preferences.SystemSettingSwitchPreference
+         <!--com.n4e.settings.preferences.SystemSettingSwitchPreference
             android:key="powermenu_soundpanel"
             android:title="@string/powermenu_soundpanel"
-            android:defaultValue="true" />
+            android:defaultValue="true" /-->
+
+         <ListPreference
+            android:key="power_menu_animations"
+            android:title="@string/power_menu_animation_title"
+            android:dialogTitle="@string/power_menu_animation_dialog_title"
+            android:entries="@array/power_menu_animations_entries"
+            android:entryValues="@array/power_menu_animations_values"
+            android:summary="@string/power_menu_animation_summary"
+            android:persistent="false" />
+
 </PreferenceScreen>

@@ -22,22 +22,27 @@ import android.content.pm.UserInfo;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.os.UserManager;
-import android.preference.Preference;
-import android.preference.PreferenceFragment;
-import android.preference.PreferenceScreen;
-import android.preference.SwitchPreference;
 import android.provider.Settings;
-import com.android.settings.R;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.ListPreference;
+import android.support.v7.preference.PreferenceCategory;
+import android.support.v7.preference.PreferenceScreen;
+import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.support.annotation.NonNull;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
+import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PowerMenuSettings extends SettingsPreferenceFragment {
+public class PowerMenuSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
+
+    private static final String POWER_MENU_ANIMATIONS = "power_menu_animations";
+
+    private ListPreference mPowerMenuAnimations;
 
     @Override
     protected int getMetricsCategory() {
@@ -49,7 +54,24 @@ public class PowerMenuSettings extends SettingsPreferenceFragment {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.n4e_settings_power);
+
+        mPowerMenuAnimations = (ListPreference) findPreference(POWER_MENU_ANIMATIONS);
+        mPowerMenuAnimations.setValue(String.valueOf(Settings.System.getInt(
+                getContentResolver(), Settings.System.POWER_MENU_ANIMATIONS, 0)));
+        mPowerMenuAnimations.setSummary(mPowerMenuAnimations.getEntry());
+        mPowerMenuAnimations.setOnPreferenceChangeListener(this);
     }
 
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mPowerMenuAnimations) {
+            Settings.System.putInt(getContentResolver(), Settings.System.POWER_MENU_ANIMATIONS,
+                    Integer.valueOf((String) newValue));
+            mPowerMenuAnimations.setValue(String.valueOf(newValue));
+            mPowerMenuAnimations.setSummary(mPowerMenuAnimations.getEntry());
+            return true;
+        }
+        return false;
+    }
 
 }

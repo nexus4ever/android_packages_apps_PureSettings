@@ -128,6 +128,14 @@
     <string name="powermenu_lockdown">Lock Down</string>
     <string name="powermenu_soundpanel">Sound Panel</string>
 
+    <!-- Power menu Animations  -->
+    <string name="power_menu_animation_title">Power menu animation and positioning</string>
+    <string name="power_menu_animation_summary">Change the enter/exit animation of the power menu and its screen position</string>
+    <string name="power_menu_animation_dialog_title">Select power menu animation</string>
+    <string name="power_menu_animation_aosp">AOSP (default)</string>
+    <string name="power_menu_animation_bottom">Bottom</string>
+    <string name="power_menu_animation_top">Top</string>
+
     <!-- Volume rocker wake -->
     <string name="wakeup_category_header">Wakeup options</string>
     <string name="volume_rocker_wake_title">Volume rocker wake</string>
@@ -259,4 +267,5 @@
     <!-- Allow fake signature checkbox in developer settings -->
     <string name="allow_signature_fake">Allow signature spoofing</string>
     <string name="allow_signature_fake_summary">Allow apps to bypass security systems by pretending to be a different app</string>
+
 </resources>
