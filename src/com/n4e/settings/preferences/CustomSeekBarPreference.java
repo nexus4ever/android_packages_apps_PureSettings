@@ -14,7 +14,7 @@
  * limitations under the License
  */
 
-package com.nitrogen.settings.preferences;
+package com.n4e.settings.preferences;
 
 import android.content.Context;
 import android.content.res.TypedArray;

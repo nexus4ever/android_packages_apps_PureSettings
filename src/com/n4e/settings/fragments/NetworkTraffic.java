@@ -14,7 +14,7 @@ import android.util.Log;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.nitrogen.settings.preferences.CustomSeekBarPreference;
+import com.n4e.settings.preferences.CustomSeekBarPreference;
 
 public class NetworkTraffic extends SettingsPreferenceFragment
     implements Preference.OnPreferenceChangeListener {
