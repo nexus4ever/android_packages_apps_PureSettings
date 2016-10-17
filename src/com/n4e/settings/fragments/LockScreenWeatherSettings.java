@@ -1,5 +1,5 @@
 /* 
- * Copyright (C) 2014 DarkKat
+ * Copyright (C) 2016 The NeXus4ever Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -53,7 +53,7 @@ public class LockScreenWeatherSettings extends SettingsPreferenceFragment implem
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.lock_screen_weather_settings);
+        addPreferencesFromResource(R.xml.n4e_lock_screen_weather_settings);
         mResolver = getActivity().getContentResolver();
         PreferenceScreen prefs = getPreferenceScreen();
 

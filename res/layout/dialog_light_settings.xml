@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
      Copyright (C) 2010 Daniel Nilsson
-     Copyright (C) 2012 The CyanogenMod Project
+     Copyright (C) 2016 The NeXus4ever Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -30,7 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
-        <com.pure.settings.notificationlight.ColorPickerView
+        <com.n4e.settings.notificationlight.ColorPickerView
             android:id="@+id/color_picker_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -58,7 +58,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.5" />
 
-            <com.pure.settings.notificationlight.ColorPanelView
+            <com.n4e.settings.notificationlight.ColorPanelView
                 android:id="@+id/color_panel"
                 android:layout_width="0px"
                 android:layout_height="match_parent"

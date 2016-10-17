@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 The Pure Nexus Project
+ * Copyright (C) 2016 The NeXus4ever Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,7 +39,7 @@ public class DisplaySettings extends SettingsPreferenceFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.disp_settings);
+        addPreferencesFromResource(R.xml.n4e_disp_settings);
         PreferenceScreen prefScreen = getPreferenceScreen();
 
         final PreferenceCategory leds = (PreferenceCategory) findPreference(CATEGORY_LEDS);
