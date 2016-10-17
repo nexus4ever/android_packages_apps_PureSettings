@@ -22,7 +22,7 @@
             android:key="pure_display_settings"
             android:title="@string/display_settings_title"
             android:fragment="com.n4e.settings.fragments.DisplaySettings"
-            android:icon="@drawable/ic_settings_statusbar"/>
+            android:icon="@drawable/ic_settings_display"/>
 
         <!-- Status Bar -->
         <PreferenceScreen

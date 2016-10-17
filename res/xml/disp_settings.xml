@@ -16,6 +16,12 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+    <com.n4e.settings.preferences.GlobalSettingSwitchPreference
+        android:key="wake_when_plugged_or_unplugged"
+        android:title="@string/wakeup_when_plugged_unplugged_title"
+        android:summary="@string/wakeup_when_plugged_unplugged_summary"
+        android:defaultValue="true" />
+
     <PreferenceCategory
         android:key="leds"
         android:title="@string/led_category" >
