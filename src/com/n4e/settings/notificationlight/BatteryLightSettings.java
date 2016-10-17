@@ -88,7 +88,7 @@ public class BatteryLightSettings extends SettingsPreferenceFragment implements
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsEvent.NEXUS;
+        return MetricsEvent.NEXUS_SETTINGS;
     }
 
     @Override

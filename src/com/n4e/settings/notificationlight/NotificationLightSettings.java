@@ -132,7 +132,7 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsEvent.NEXUS;
+        return MetricsEvent.NEXUS_SETTINGS;
     }
 
     @Override

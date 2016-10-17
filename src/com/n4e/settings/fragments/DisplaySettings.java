@@ -69,7 +69,7 @@ public class DisplaySettings extends SettingsPreferenceFragment {
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsEvent.NEXUS;
+        return MetricsEvent.NEXUS_SETTINGS;
     }
 }
 
