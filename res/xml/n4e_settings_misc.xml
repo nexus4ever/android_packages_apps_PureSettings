@@ -30,4 +30,9 @@
                 android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
         </PreferenceScreen>
 
+        <com.n4e.settings.preferences.SecureSettingSwitchPreference
+            android:key="allow_signature_fake"
+            android:title="@string/allow_signature_fake"
+            android:summary="@string/allow_signature_fake_summary"/>
+
 </PreferenceScreen>

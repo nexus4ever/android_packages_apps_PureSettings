@@ -255,4 +255,8 @@
     <string name="statusbar_battery_charging_color_enable_title">Color while charging</string>
     <string name="statusbar_battery_charging_color_enable_summary"></string>
     <string name="battery_enable_title">Show battery</string>
+
+    <!-- Allow fake signature checkbox in developer settings -->
+    <string name="allow_signature_fake">Allow signature spoofing</string>
+    <string name="allow_signature_fake_summary">Allow apps to bypass security systems by pretending to be a different app</string>
 </resources>
