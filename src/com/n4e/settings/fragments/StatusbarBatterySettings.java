@@ -46,7 +46,6 @@ import com.android.settings.search.Indexable;
 import java.util.List;
 import java.util.ArrayList;
 
-import com.n4e.settings.preferences.ColorPickerPreference;
 import com.n4e.settings.preferences.SystemSettingSwitchPreference;
 
 public class StatusbarBatterySettings extends SettingsPreferenceFragment implements
@@ -55,7 +54,6 @@ public class StatusbarBatterySettings extends SettingsPreferenceFragment impleme
 
     private static final String STATUSBAR_BATTERY_STYLE = "statusbar_battery_style";
     private static final String STATUSBAR_BATTERY_PERCENT = "statusbar_battery_percent";
-    private static final String STATUSBAR_CHARGING_COLOR = "statusbar_battery_charging_color";
     private static final String STATUSBAR_BATTERY_PERCENT_INSIDE = "statusbar_battery_percent_inside";
     private static final String STATUSBAR_BATTERY_SHOW_BOLT = "statusbar_battery_charging_image";
     private static final String STATUSBAR_BATTERY_ENABLE = "statusbar_battery_enable";
@@ -63,7 +61,6 @@ public class StatusbarBatterySettings extends SettingsPreferenceFragment impleme
 
     private ListPreference mBatteryStyle;
     private ListPreference mBatteryPercent;
-    private ColorPickerPreference mChargingColor;
     private SystemSettingSwitchPreference mPercentInside;
     private SystemSettingSwitchPreference mShowBolt;
     private int mShowPercent;
@@ -100,14 +97,6 @@ public class StatusbarBatterySettings extends SettingsPreferenceFragment impleme
         mBatteryPercent.setValue(Integer.toString(mShowPercent));
         mBatteryPercent.setSummary(mBatteryPercent.getEntry());
         mBatteryPercent.setOnPreferenceChangeListener(this);
-
-        mChargingColor = (ColorPickerPreference) prefScreen.findPreference(STATUSBAR_CHARGING_COLOR);
-        // TODO 0xFFFFFFFF is not really the default - but the config value R.color.batterymeter_charge_color is not exposed
-        int chargingColor = Settings.System.getInt(resolver, Settings.System.STATUSBAR_BATTERY_CHARGING_COLOR, 0xFFFFFFFF);
-        mChargingColor.setColor(chargingColor);
-        String hexColor = String.format("#%08X", chargingColor);
-        mChargingColor.setSummary(hexColor);
-        mChargingColor.setOnPreferenceChangeListener(this);
 
         mPercentInside = (SystemSettingSwitchPreference) findPreference(STATUSBAR_BATTERY_PERCENT_INSIDE);
 
@@ -150,11 +139,6 @@ public class StatusbarBatterySettings extends SettingsPreferenceFragment impleme
             Settings.System.putInt(getContentResolver(),
                     Settings.System.STATUSBAR_BATTERY_PERCENT, mShowPercent);
             updateEnablement();
-        } else if (preference == mChargingColor) {
-            String hexColor = String.format("#%08X", mChargingColor.getColor());
-            mChargingColor.setSummary(hexColor);
-            Settings.System.putInt(resolver,
-                    Settings.System.STATUSBAR_BATTERY_CHARGING_COLOR, mChargingColor.getColor());
         } else if (preference == mBatteryEnable) {
             mShowBattery = Integer.valueOf((String) newValue);
             int index = mBatteryEnable.findIndexOfValue((String) newValue);
