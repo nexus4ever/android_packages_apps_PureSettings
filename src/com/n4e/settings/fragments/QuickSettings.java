@@ -34,16 +34,16 @@ import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.PreferenceCategory;
 import android.support.v7.preference.PreferenceScreen;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
-import android.support.v14.preference.SwitchPreference;
-import android.support.v7.preference.ListPreference;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManagerGlobal;
 import android.view.IWindowManager;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
+import com.android.internal.widget.LockPatternUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.n4e.settings.preferences.SystemSettingSwitchPreference;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.Locale;
@@ -57,12 +57,12 @@ import java.util.ArrayList;
 public class QuickSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
+    private static final String PREF_STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD = "status_bar_locked_on_secure_keyguard";
     private static final String QUICK_PULLDOWN = "quick_pulldown";
     private static final String PREF_SMART_PULLDOWN = "smart_pulldown";
     private static final String PREF_TILE_ANIM_STYLE = "qs_tile_animation_style";
     private static final String PREF_TILE_ANIM_DURATION = "qs_tile_animation_duration";
     private static final String PREF_TILE_ANIM_INTERPOLATOR = "qs_tile_animation_interpolator";
-
 
     private ListPreference mQuickPulldown;
     private ListPreference mSmartPulldown;
@@ -70,15 +70,24 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private ListPreference mTileAnimationDuration;
     private ListPreference mTileAnimationInterpolator;
 
+    private static final int MY_USER_ID = UserHandle.myUserId();
+
+    private SystemSettingSwitchPreference mQSLockOnSecureKeyguard;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.n4e_settings_quicksettings);
 
-        PreferenceScreen prefScreen = getPreferenceScreen();
-        ContentResolver resolver = getActivity().getContentResolver();
+        final LockPatternUtils lockPatternUtils = new LockPatternUtils(getActivity());
+	PreferenceScreen prefSet = getPreferenceScreen();
+        mQSLockOnSecureKeyguard = (SystemSettingSwitchPreference) findPreference(PREF_STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD);
+        if (!lockPatternUtils.isSecure(MY_USER_ID) && mQSLockOnSecureKeyguard != null) {
+            prefSet.removePreference(mQSLockOnSecureKeyguard);
+        }
 
+        ContentResolver resolver = getActivity().getContentResolver();
         mQuickPulldown = (ListPreference) findPreference(QUICK_PULLDOWN);
         mQuickPulldown.setOnPreferenceChangeListener(this);
         int quickPulldownValue = Settings.System.getIntForUser(resolver,
@@ -229,4 +238,14 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             }
         }
     }
+
+   @Override
+   public void onStart() {
+        super.onStart();
+
+        final PreferenceScreen prefSet = getPreferenceScreen();
+        mQSLockOnSecureKeyguard = (SystemSettingSwitchPreference) findPreference(PREF_STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD);
+
+    }
+
 }
