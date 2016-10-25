@@ -115,14 +115,4 @@ public class PowerMenuSettings extends SettingsPreferenceFragment implements OnP
         return false;
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-
-        final PreferenceScreen prefScreen = getPreferenceScreen();
-        final PreferenceCategory actionCategory =
-                (PreferenceCategory) prefScreen.findPreference(ACTION_CATEGORY);
-
-    }
-
 }
