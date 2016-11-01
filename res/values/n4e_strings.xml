@@ -545,6 +545,6 @@
     <string name="enable_hw_keys_title">Enable hardware keys</string>
 
     <!-- Enable keys backlight-->
-    <string name="button_brightness_title">Enable backlight</string>
+    <string name="button_brightness_title">Backlight</string>
 
 </resources>
