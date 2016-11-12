@@ -46,6 +46,12 @@
         android:key="media"
         android:title="@string/media_category_header" >
 
+    <ListPreference
+        android:key="screenrecord_chord_type"
+        android:title="@string/screen_record_chord_title"
+        android:entries="@array/screen_record_chord_entries"
+        android:entryValues="@array/screen_record_chord_values" />
+
     <com.n4e.settings.preferences.SecureSettingSwitchPreference
         android:key="sysui_volume_down_silent"
         android:title="@string/volbtn_down_zen_title"

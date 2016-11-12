@@ -470,4 +470,9 @@
     <string name="nav_bar_dynamic_title">Dynamic navbar color</string>
     <string name="nav_bar_dynamic_summary">Enable to adapt navbar color to apps primary dark color.Restart your desired app to see effect</string>
 
+    <!-- Screen record chord behavior -->
+    <string name="screen_record_chord_title">Power + volume up behavior</string>
+    <string name="screen_record_chord_screenrecord">Start screen recording</string>
+    <string name="screen_record_chord_selscreenshot">Take screenshot of selectable area</string>
+
 </resources>
