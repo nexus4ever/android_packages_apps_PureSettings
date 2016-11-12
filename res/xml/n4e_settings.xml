@@ -49,7 +49,7 @@
         <PreferenceScreen
             android:key="navigationbar_category"
             android:title="@string/navbar_title" 
-            android:fragment="com.n4e.settings.fragments.NavigationBarSettings"
+            android:fragment="com.n4e.settings.fragments.NavbarSettings"
             android:icon="@drawable/ic_settings_navbar"/>
 
         <!-- Gestures -->
