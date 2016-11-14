@@ -531,4 +531,14 @@
     <string name="navbar_buttons_alpha_title">Button transparency</string>
     <string name="navbar_bottom">Navbar orientation</string>
     <string name="navbar_bottom_summary">Force show navbar on the bottom side of device when rotated to 270 degrees</string>
+
+    <!-- Buttons backlight timeout -->
+    <string name="backlight_timeout_title">Buttons backlight timeout</string>
+    <string name="backlight_timeout_on">Enabled always</string>
+    <string name="backlight_timeout_default">5 sec (default)</string>
+    <string name="backlight_timeout_10s">10 sec</string>
+    <string name="backlight_timeout_15s">15 sec</string>
+    <string name="backlight_timeout_20s">20 sec</string>
+    <string name="backlight_timeout_30s">30 sec</string>
+
 </resources>

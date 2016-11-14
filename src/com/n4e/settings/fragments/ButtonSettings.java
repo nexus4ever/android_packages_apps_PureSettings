@@ -42,6 +42,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private static final String KEY_MENU_PRESS = "hardware_keys_menu_press";
     private static final String KEY_MENU_LONG_PRESS = "hardware_keys_menu_long_press";
     private static final String KILL_APP_LONGPRESS_TIMEOUT = "kill_app_longpress_timeout";
+    private static final String KEY_BACKLIGHT_TIMEOUT = "backlight_timeout";
 
     private static final String CATEGORY_POWER = "power_key";
     private static final String CATEGORY_HOME = "home_key";
@@ -78,6 +79,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private ListPreference mMenuPressAction;
     private ListPreference mMenuLongPressAction;
     private ListPreference mKillAppLongpressTimeout;
+    private ListPreference mBacklightTimeout;
 
     private Handler mHandler;
 
@@ -104,6 +106,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                 (PreferenceCategory) prefScreen.findPreference(CATEGORY_HOME);
         final PreferenceCategory menuCategory =
                 (PreferenceCategory) prefScreen.findPreference(CATEGORY_MENU);
+
+        mBacklightTimeout = (ListPreference) findPreference(KEY_BACKLIGHT_TIMEOUT);
 
         mHandler = new Handler();
 
@@ -159,6 +163,17 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         	Settings.Secure.KILL_APP_LONGPRESS_TIMEOUT, 1000);
         mKillAppLongpressTimeout.setValue(Integer.toString(KillAppLongpressTimeout));
         mKillAppLongpressTimeout.setSummary(mKillAppLongpressTimeout.getEntry());
+        if (hasMenuKey || hasHomeKey) {
+            if (mBacklightTimeout != null) {
+        	mBacklightTimeout.setOnPreferenceChangeListener(this);
+        	int BacklightTimeout = Settings.System.getInt(getContentResolver(),
+                	Settings.System.BUTTON_BACKLIGHT_TIMEOUT, 5000);
+        	mBacklightTimeout.setValue(Integer.toString(BacklightTimeout));
+        	mBacklightTimeout.setSummary(mBacklightTimeout.getEntry());
+            }
+        } else {
+            prefScreen.removePreference(mBacklightTimeout);
+        }
     }
 
     private ListPreference initActionList(String key, int value) {
@@ -204,6 +219,15 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                     .findIndexOfValue(KillAppLongpressTimeout);
             mKillAppLongpressTimeout
                     .setSummary(mKillAppLongpressTimeout.getEntries()[KillAppLongpressTimeoutIndex]);
+        } else if (preference == mBacklightTimeout) {
+            String BacklightTimeout = (String) newValue;
+            int BacklightTimeoutValue = Integer.parseInt(BacklightTimeout);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.BUTTON_BACKLIGHT_TIMEOUT, BacklightTimeoutValue);
+            int BacklightTimeoutIndex = mBacklightTimeout
+                    .findIndexOfValue(BacklightTimeout);
+            mBacklightTimeout
+                    .setSummary(mBacklightTimeout.getEntries()[BacklightTimeoutIndex]);
             return true;
         }
         return false;
