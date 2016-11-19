@@ -21,11 +21,11 @@
         android:key="general_section"
         android:title="@string/notification_light_general_title">
 
-        <com.nitrogen.settings.preferences.SystemSettingSwitchPreference
+        <com.n4e.settings.preferences.SystemSettingSwitchPreference
             android:key="notification_light_pulse"
             android:title="@string/notification_light_title" />
 
-        <com.nitrogen.settings.fragments.notificationlight.NotificationLightPreference
+        <com.n4e.settings.fragments.notificationlight.NotificationLightPreference
             android:key="default"
             android:title="@string/notification_light_default_value"
             android:persistent="false"
@@ -37,18 +37,18 @@
         android:key="advanced_section"
         android:title="@string/advanced">
 
-        <com.nitrogen.settings.preferences.SystemSettingSwitchPreference
+        <com.n4e.settings.preferences.SystemSettingSwitchPreference
             android:key="notification_light_screen_on_enable"
             android:title="@string/notification_light_screen_on"
             android:dependency="notification_light_pulse" />
 
-        <com.nitrogen.settings.preferences.SystemSettingSwitchPreference
+        <com.n4e.settings.preferences.SystemSettingSwitchPreference
             android:key="allow_lights"
             android:title="@string/notification_light_zen_mode"
             android:dependency="notification_light_pulse"
             android:defaultValue="true" />
 
-        <com.nitrogen.settings.preferences.SystemSettingSwitchPreference
+        <com.n4e.settings.preferences.SystemSettingSwitchPreference
             android:key="notification_light_pulse_custom_enable"
             android:title="@string/notification_light_use_custom"
             android:dependency="notification_light_pulse" />

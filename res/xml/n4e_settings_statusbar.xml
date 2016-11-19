@@ -40,7 +40,7 @@
             android:fragment="com.n4e.settings.fragments.NetworkTraffic"
             android:title="@string/network_traffic_title" />
 
-    <com.nitrogen.settings.preferences.SystemSettingSwitchPreference
+    <com.n4e.settings.preferences.SystemSettingSwitchPreference
             android:key="status_bar_brightness_control"
             android:title="@string/status_bar_toggle_brightness"
             android:summary="@string/status_bar_toggle_brightness_summary"
