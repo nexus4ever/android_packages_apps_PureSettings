@@ -69,10 +69,16 @@ public class MiscSettings extends SettingsPreferenceFragment implements
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference == mScrollingCachePref) {
             if (newValue != null) {
-                SystemProperties.set(SCROLLINGCACHE_PERSIST_PROP, (String)newValue);
+                String ScrollingCache = (String) newValue;
+                SystemProperties.set(SCROLLINGCACHE_PERSIST_PROP, ScrollingCache);
+                int ScrollingCacheIndex = mScrollingCachePref
+                        .findIndexOfValue(ScrollingCache);
+                mScrollingCachePref
+                        .setSummary(mScrollingCachePref.getEntries()[ScrollingCacheIndex]);
+            }
             return true;
         } else if  (preference == mScreenshotType) {
-            int mScreenshotTypeValue = Integer.parseInt(((String) objValue).toString());
+            int mScreenshotTypeValue = Integer.parseInt(((String) newValue).toString());
             mScreenshotType.setSummary(
                     mScreenshotType.getEntries()[mScreenshotTypeValue]);
             Settings.System.putInt(getContentResolver(),
