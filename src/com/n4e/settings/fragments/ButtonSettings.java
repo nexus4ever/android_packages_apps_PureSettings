@@ -42,7 +42,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private static final String KEY_HOME_DOUBLE_TAP = "hardware_keys_home_double_tap";
     private static final String KEY_MENU_PRESS = "hardware_keys_menu_press";
     private static final String KEY_MENU_LONG_PRESS = "hardware_keys_menu_long_press";
-    private static final String KILL_APP_LONGPRESS_TIMEOUT = "kill_app_longpress_timeout";
     private static final String KEY_BACKLIGHT_TIMEOUT = "backlight_timeout";
     private static final String KEY_ENABLE_HW_KEYS = "enable_hw_keys";
     private static final String KEY_BUTTON_BRIGHTNESS = "button_brightness";
@@ -82,7 +81,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private ListPreference mHomeDoubleTapAction;
     private ListPreference mMenuPressAction;
     private ListPreference mMenuLongPressAction;
-    private ListPreference mKillAppLongpressTimeout;
     private ListPreference mBacklightTimeout;
     private SwitchPreference mEnableHwKeys;
     private CustomSeekBarPreference mButtonBrightness;
@@ -166,14 +164,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         } else {
             prefScreen.removePreference(menuCategory);
         }
-
-        // Back long press timeout
-        mKillAppLongpressTimeout = (ListPreference) findPreference(KILL_APP_LONGPRESS_TIMEOUT);
-        mKillAppLongpressTimeout.setOnPreferenceChangeListener(this);
-        int KillAppLongpressTimeout = Settings.Secure.getInt(getContentResolver(),
-        	Settings.Secure.KILL_APP_LONGPRESS_TIMEOUT, 1000);
-        mKillAppLongpressTimeout.setValue(Integer.toString(KillAppLongpressTimeout));
-        mKillAppLongpressTimeout.setSummary(mKillAppLongpressTimeout.getEntry());
         if (hasMenuKey || hasHomeKey) {
             if (mBacklightTimeout != null) {
         	mBacklightTimeout.setOnPreferenceChangeListener(this);
@@ -236,15 +226,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             handleActionListChange(mMenuLongPressAction, newValue,
                     Settings.System.KEY_MENU_LONG_PRESS_ACTION);
             return true;
-        } else if (preference == mKillAppLongpressTimeout) {
-            String KillAppLongpressTimeout = (String) newValue;
-            int KillAppLongpressTimeoutValue = Integer.parseInt(KillAppLongpressTimeout);
-            Settings.Secure.putInt(getActivity().getContentResolver(),
-                    Settings.Secure.KILL_APP_LONGPRESS_TIMEOUT, KillAppLongpressTimeoutValue);
-            int KillAppLongpressTimeoutIndex = mKillAppLongpressTimeout
-                    .findIndexOfValue(KillAppLongpressTimeout);
-            mKillAppLongpressTimeout
-                    .setSummary(mKillAppLongpressTimeout.getEntries()[KillAppLongpressTimeoutIndex]);
         } else if (preference == mBacklightTimeout) {
             String BacklightTimeout = (String) newValue;
             int BacklightTimeoutValue = Integer.parseInt(BacklightTimeout);
