@@ -43,7 +43,7 @@
             android:key="navbar_category"
             android:title="@string/navbar_title" 
             android:fragment="com.n4e.settings.fragments.NavigationbarSettings"
-            android:icon="@drawable/ic_settings_navigationbar"/>
+            android:icon="@drawable/ic_settings_navbar"/>
 
         <!-- SmartBar Settings >
         <PreferenceScreen
