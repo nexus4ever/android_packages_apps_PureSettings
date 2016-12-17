@@ -38,12 +38,19 @@
             android:fragment="com.n4e.settings.fragments.ButtonSettings"
             android:icon="@drawable/ic_settings_buttons"/>
 
-        <!-- Navigation Bar -->
+        <!-- Navigationbar Settings -->
+        <PreferenceScreen
+            android:key="navbar_category"
+            android:title="@string/navbar_title" 
+            android:fragment="com.n4e.settings.fragments.NavigationbarSettings"
+            android:icon="@drawable/ic_settings_navigationbar"/>
+
+        <!-- SmartBar Settings >
         <PreferenceScreen
             android:key="navigationbar_category"
             android:title="@string/navbar_title" 
             android:fragment="com.n4e.settings.fragments.NavbarSettings"
-            android:icon="@drawable/ic_settings_navbar"/>
+            android:icon="@drawable/ic_settings_navbar"/-->
 
         <!-- Gestures -->
         <PreferenceScreen
