@@ -45,13 +45,6 @@
             android:fragment="com.n4e.settings.fragments.NavigationbarSettings"
             android:icon="@drawable/ic_settings_navbar"/>
 
-        <!-- SmartBar Settings >
-        <PreferenceScreen
-            android:key="navigationbar_category"
-            android:title="@string/navbar_title" 
-            android:fragment="com.n4e.settings.fragments.NavbarSettings"
-            android:icon="@drawable/ic_settings_navbar"/-->
-
         <!-- Gestures -->
         <PreferenceScreen
             android:key="gestures_category"
