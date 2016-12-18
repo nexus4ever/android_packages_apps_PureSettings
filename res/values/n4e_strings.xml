@@ -475,4 +475,8 @@
     <string name="screen_record_chord_screenrecord">Start screen recording</string>
     <string name="screen_record_chord_selscreenshot">Take screenshot of selectable area</string>
 
+    <!-- Power notification controls -->
+    <string name="power_notification_title">Power notification controls</string>
+    <string name="power_notification_summary">Advanced notification controls and information</string>
+
 </resources>
