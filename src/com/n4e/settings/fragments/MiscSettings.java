@@ -35,11 +35,8 @@ public class MiscSettings extends SettingsPreferenceFragment implements
     private static final String SCROLLINGCACHE_PREF = "pref_scrollingcache";
     private static final String SCROLLINGCACHE_PERSIST_PROP = "persist.sys.scrollingcache";
     private static final String SCROLLINGCACHE_DEFAULT = "1";
-    private static final String SCREENSHOT_TYPE = "screenshot_type";
 
     private ListPreference mScrollingCachePref;
-    private ListPreference mScreenshotType;
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -56,13 +53,6 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         mScrollingCachePref.setValue(SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP,
                 SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP, SCROLLINGCACHE_DEFAULT)));
         mScrollingCachePref.setOnPreferenceChangeListener(this);
-
-        mScreenshotType = (ListPreference) findPreference(SCREENSHOT_TYPE);
-        int mScreenshotTypeValue = Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.SCREENSHOT_TYPE, 0);
-        mScreenshotType.setValue(String.valueOf(mScreenshotTypeValue));
-        mScreenshotType.setSummary(mScreenshotType.getEntry());
-        mScreenshotType.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -76,14 +66,6 @@ public class MiscSettings extends SettingsPreferenceFragment implements
                 mScrollingCachePref
                         .setSummary(mScrollingCachePref.getEntries()[ScrollingCacheIndex]);
             }
-            return true;
-        } else if  (preference == mScreenshotType) {
-            int mScreenshotTypeValue = Integer.parseInt(((String) newValue).toString());
-            mScreenshotType.setSummary(
-                    mScreenshotType.getEntries()[mScreenshotTypeValue]);
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.SCREENSHOT_TYPE, mScreenshotTypeValue);
-            mScreenshotType.setValue(String.valueOf(mScreenshotTypeValue));
             return true;
         }
         return false;

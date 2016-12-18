@@ -443,11 +443,6 @@
     <string name="heads_up_snooze_15min">15 minutes</string>
     <string name="heads_up_snooze_20min">20 minutes</string>
 
-    <!-- Optional screenshot type -->
-    <string name="screenshot_type_title">Screenshot type</string>
-    <string name="screenshot_type_fullscreen">Take fullscreen screenshots</string>
-    <string name="screenshot_type_partial">Drag a rectangle of the screen you wish to capture</string>
-
     <!-- Wakelock blocker -->
     <string name="wakelock_blocker_title">Wakelock Blocker</string>
     <string name="wakelock_blocker_summary">Block system wakelocks</string>
