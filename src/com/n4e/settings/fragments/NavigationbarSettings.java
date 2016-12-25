@@ -29,7 +29,7 @@ public class NavigationbarSettings extends SettingsPreferenceFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.navbar_settings);
+        addPreferencesFromResource(R.xml.n4e_settings_navigationbar);
         PreferenceScreen prefScreen = getPreferenceScreen();
     }
 
