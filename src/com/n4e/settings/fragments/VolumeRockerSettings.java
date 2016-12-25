@@ -2,6 +2,7 @@ package com.n4e.settings.fragments;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
+import android.content.ContentResolver;
 import android.os.Bundle;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
@@ -26,17 +27,15 @@ public class VolumeRockerSettings extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.n4e_settings_volume);
+        final ContentResolver resolver = getActivity().getContentResolver();
 
         // volume key cursor control
-        mVolumeKeyCursorControl = (ListPreference) findPreference(VOLUME_KEY_CURSOR_CONTROL);
-        if (mVolumeKeyCursorControl != null) {
-            mVolumeKeyCursorControl.setOnPreferenceChangeListener(this);
-            int volumeRockerCursorControl = Settings.System.getInt(getContentResolver(),
-                    Settings.System.VOLUME_KEY_CURSOR_CONTROL, 1);
-            mVolumeKeyCursorControl.setValue(Integer.toString(volumeRockerCursorControl));
-            mVolumeKeyCursorControl.setSummary(mVolumeKeyCursorControl.getEntry());
-        }
-        // mScreenrecordChordType
+        int cursorControlAction = Settings.System.getInt(resolver,
+                Settings.System.VOLUME_KEY_CURSOR_CONTROL, 0);
+        mVolumeKeyCursorControl = initActionList(VOLUME_KEY_CURSOR_CONTROL,
+cursorControlAction);
+
+        // screenrecord chord type
         int recordChordValue = Settings.System.getInt(resolver,
                 Settings.System.SCREENRECORD_CHORD_TYPE, 0);
         mScreenrecordChordType = initActionList(SCREENRECORD_CHORD_TYPE,
@@ -62,6 +61,21 @@ public class VolumeRockerSettings extends SettingsPreferenceFragment implements
             return true;
         }
         return false;
+    }
+
+    private ListPreference initActionList(String key, int value) {
+        ListPreference list = (ListPreference) getPreferenceScreen().findPreference(key);
+        list.setValue(Integer.toString(value));
+        list.setSummary(list.getEntry());
+        list.setOnPreferenceChangeListener(this);
+        return list;
+    }
+
+    private void handleActionListChange(ListPreference pref, Object newValue, String setting) {
+        String value = (String) newValue;
+        int index = pref.findIndexOfValue(value);
+        pref.setSummary(pref.getEntries()[index]);
+        Settings.System.putInt(getActivity().getContentResolver(), setting, Integer.valueOf(value));
     }
 
     @Override
