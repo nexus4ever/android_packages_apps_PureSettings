@@ -163,6 +163,7 @@
     <string name="powermenu_lockdown">Device lockdown</string>
     <string name="powermenu_voiceassist">Voice Assist</string>
     <string name="powermenu_assist">Assist</string>
+    <string name="powermenu_onthego_title">On-The-Go Mode</string>
 
     <!-- Power menu on secure lockscreen -->
     <string name="lockscreen_enable_power_menu_title">Show/hide power menu</string>
