@@ -33,13 +33,20 @@
                 android:key="notification_light"
                 android:title="@string/notification_light_title"
                 android:fragment="com.n4e.settings.fragments.notificationlight.NotificationLightSettings" />
-    <!-- Power Notification Controls -->
-    <PreferenceScreen
+
+        <com.n4e.settings.preferences.SystemSettingSwitchPreference
+             android:key="dnd_when_call"
+             android:title="@string/dnd_when_call_title"
+             android:summary="@string/dnd_when_call_summary"
+             android:defaultValue="true" />
+
+        <!-- Power Notification Controls -->
+        <PreferenceScreen
             android:title="@string/power_notification_title"
             android:summary="@string/power_notification_summary">
-        <intent android:action="android.intent.action.MAIN"
-            android:targetPackage="com.android.systemui"
-            android:targetClass="com.android.systemui.tuner.PowerNotificationControlsActivity" />
-    </PreferenceScreen>
+            <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.systemui"
+                android:targetClass="com.android.systemui.tuner.PowerNotificationControlsActivity" />
+        </PreferenceScreen>
 
 </PreferenceScreen>

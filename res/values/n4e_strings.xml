@@ -484,4 +484,8 @@
     <string name="one_handed_mode_title">One Handed mode</string>
     <string name="one_handed_mode_summary">Allows swiping on the navigation bar to enable one handed mode</string>
 
+    <!-- Do not Disturb mode when calling -->
+    <string name="dnd_when_call_title">Do not Disturb</string>
+    <string name="dnd_when_call_summary">Enable Do not Disturb when call active</string>
+
 </resources>
